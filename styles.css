@@ -1,0 +1,79 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: #c5c5c5;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical center */
+    align-items: center;     /* Horizontal center */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .store-title {
+    margin: 20px 0 16px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 apps per row */
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    justify-items: center; /* Center items in each cell */
+  }
+  
+  .app-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 6px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    width: 90%;
+  }
+  
+  .app-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .app-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    padding: 3px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .app-name {
+    margin-top: 4px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #444;
+    text-align: center;
+  }
+  

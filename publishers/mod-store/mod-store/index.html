@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mod-Store - App Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .app-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .app-header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .app-info h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .app-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .install-btn {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .install-btn:hover {
+      background-color: #1666cc;
+    }
+  </style>
+</head>
+<body>
+    <p><a href="/index.html">Go Home</a></p>
+  <div class="app-page">
+    <div class="app-header">
+      <img src="/publishers/mod-store/mod-store/logo.jpg" alt="Mod-Store Logo" />
+      <div class="app-info">
+        <h1>Mod-Store</h1>
+        <p><a href="/publishers/mod-store/index.html">Mod-Store<img src="/verify.png" alt="verify" style="width: 20px; height: auto; border-radius: 8px;"></a> • App</p>
+        <p>Size: 5671 KB</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>About this app</h2>
+      <p>
+        Mod-Store is your one-stop app store for mods, games, tools and custom apps you won’t find anywhere else. Whether you're looking to tweak your favorite games, try out projects, or explore new tools.
+      </p>
+    </div>
+
+    <a class="install-btn" href="/publishers/mod-store/mod-store/app.apk" download>Download apk</a>
+    <div class="section">
+      <h2>Features</h2>
+      <p>
+        - Easy to use interface<br>
+        - Regular updates<br>
+        - News tab for all the new updates<br>
+        - Community-driven content<br>
+        <h1>Screenshots</h1>
+        <!-- Screenshots -->
+<div class="screenshots">
+  <img src="/publishers/mod-store/mod-store/img1.png" alt="Screenshot" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+  <img src="/publishers/mod-store/mod-store/img2.png" alt="Screenshot" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+  <img src="/publishers/mod-store/mod-store/img3.png" alt="Screenshot" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+</div>
+
+<!-- Fullscreen Viewer (hidden by default) -->
+<dialog id="fullscreenViewer" onclick="this.close()" style="display: none; padding: 0; border: none; background: rgba(196, 196, 196, 0.95); align-items: center; justify-content: center; width: 100vw; height: 100vh;">
+  <img id="fullscreenImg" src="" style="max-width: 100%; max-height: 100%;">
+</dialog>
+
+<!-- Script -->
+<script>
+  const viewer = document.getElementById("fullscreenViewer");
+  const fullImg = document.getElementById("fullscreenImg");
+
+  function openFullscreen(img) {
+    fullImg.src = img.src;
+    viewer.style.display = 'flex';
+    viewer.showModal();
+  }
+
+  viewer.addEventListener("close", () => {
+    viewer.style.display = "none";
+  });
+</script>
+  </div>
+  <div class="powr-product-reviews" id="f6c1bec4_1744612520"></div><script src="https://www.powr.io/powr.js?platform=google"></script>
+</body>
+</html>
