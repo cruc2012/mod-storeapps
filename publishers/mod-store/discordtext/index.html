@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discord Colored Text Generator - App Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .app-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .app-header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .app-info h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .app-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .install-btn {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .install-btn:hover {
+      background-color: #1666cc;
+    }
+  </style>
+</head>
+<body>
+    <p><a href="/index.html">Go Home</a></p>
+  <div class="app-page">
+    <div class="app-header">
+      <img src="/publishers/mod-store/discordtext/logo.png" alt="Mod-Store Logo" />
+      <div class="app-info">
+        <h1>Discord Colored Text Generator <span style="color:#1976d2;"><strong>BETA</strong></span></h1>
+        <p>Version: 1.0</p>
+        <p><a href="/publishers/mod-store/index.html">Mod-Store<img src="/verify.png" alt="verify" style="width: 20px; height: auto; border-radius: 8px;"></a> • App</p>
+        <p>Size: 5632 KB</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>About this app</h2>
+      <p>
+        Discord Colored Text Generator is a simple and easy-to-use application that allows you to generate colored text for Discord. With this app, you can create beautiful and colorful messages to enhance your Discord experience. The app provides a user-friendly interface where you can input your text, choose your desired color, and generate the colored text instantly. You can then copy and paste the generated text directly into Discord to make your messages stand out.
+      </p>
+    </div>
+
+    <a class="install-btn" href="/publishers/mod-store/discordtext/app.apk" download>Download apk</a>
+      <h2>Features</h2>
+      <p>
+        - Easy to use interface<br>
+        - Generate colored text for Discord<br>
+        - Copy and paste the generated text directly into Discord<br>
+        <h1>Screenshots</h1>
+        <!-- Screenshots -->
+<div class="screenshots">
+  <img src="/publishers/mod-store/discordtext/img1.png" alt="" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+  <img src="/publishers/mod-store/discordtext/img2.png" alt="" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+  <img src="/publishers/mod-store/discordtext/img3.png" alt="" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+  <img src="/publishers/mod-store/discordtext/img4.png" alt="" style="width: 20%; height: auto; margin-top: 20px; border-radius: 10px; cursor: pointer;" onclick="openFullscreen(this)">
+</div>
+
+<!-- Fullscreen Viewer (hidden by default) -->
+<dialog id="fullscreenViewer" onclick="this.close()" style="display: none; padding: 0; border: none; background: rgba(196, 196, 196, 0.95); align-items: center; justify-content: center; width: 100vw; height: 100vh;">
+  <img id="fullscreenImg" src="" style="max-width: 100%; max-height: 100%;">
+</dialog>
+
+<!-- Script -->
+<script>
+  const viewer = document.getElementById("fullscreenViewer");
+  const fullImg = document.getElementById("fullscreenImg");
+
+  function openFullscreen(img) {
+    fullImg.src = img.src;
+    viewer.style.display = 'flex';
+    viewer.showModal();
+  }
+
+  viewer.addEventListener("close", () => {
+    viewer.style.display = "none";
+  });
+</script>
+  </div>
+ <div class="powr-product-reviews" id="2aca8587_1747109898"></div><script src="https://www.powr.io/powr.js?platform=google"></script>
+</body>
+</html>

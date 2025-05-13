@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .app-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .app-header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .app-info h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .app-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .install-btn {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .install-btn:hover {
+      background-color: #1666cc;
+    }
+
+    .screenshots img {
+      width: 20%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <p><a href="/index.html">Go Home</a></p>
+  <div class="app-page">
+    <div class="app-header">
+      <img id="app-icon" src="" alt="App Icon" />
+      <div class="app-info">
+        <h1 id="app-name"></h1>
+        <p id="app-version"></p>
+        <p id="app-publisher"></p>
+        <p id="app-size"></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>About this app</h2>
+      <p id="app-description">Loading...</p>
+    </div>
+
+    <a class="install-btn" id="download-btn" href="#">Download apk</a>
+
+        <div class="section">
+      <h2>Features</h2>
+      <p id="app-features">Loading...</p>
+    </div>
+
+    <div class="section">
+      <h2>Screenshots</h2>
+      <div id="screenshots" class="screenshots"></div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Viewer (hidden by default) -->
+  <dialog id="fullscreenViewer" onclick="this.close()" style="display: none; padding: 0; border: none; background: rgba(196, 196, 196, 0.95); align-items: center; justify-content: center; width: 100vw; height: 100vh;">
+    <img id="fullscreenImg" src="" style="max-width: 100%; max-height: 100%;">
+  </dialog>
+
+  <script src="info.js"></script>
+  <script>
+    const viewer = document.getElementById("fullscreenViewer");
+    const fullImg = document.getElementById("fullscreenImg");
+
+    function openFullscreen(img) {
+      fullImg.src = img.src;
+      viewer.style.display = 'flex';
+      viewer.showModal();
+    }
+
+    function fetchAppInfo() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const publisher = urlParams.get('publisher');
+      const app = urlParams.get('app');
+
+      // If no publisher or app in the URL, redirect to home
+      if (!publisher || !app) {
+        window.location.href = "/index.html";
+        return;
+      }
+
+      const infoFilePath = `/publishers/${publisher}/${app}/info.js`;
+
+      // Dynamically loading the info.js file
+      fetch(infoFilePath)
+        .then(response => response.text())
+        .then(script => {
+          const scriptElement = document.createElement('script');
+          scriptElement.text = script;
+          document.head.appendChild(scriptElement);
+
+          if (typeof appInfo !== 'undefined') {
+            // Set data from info.js
+            document.getElementById('app-icon').src = appInfo.icon;
+            document.getElementById('app-name').textContent = appInfo.name;
+            document.getElementById('app-version').textContent = `Version: ${appInfo.version}`;
+            document.getElementById('app-publisher').textContent = `Publisher: ${appInfo.publisher}`;
+            document.getElementById('app-size').textContent = `Size: ${appInfo.size}`;
+            document.getElementById('app-description').textContent = appInfo.description;
+            document.getElementById('app-features').textContent = appInfo.features;
+
+            const screenshotsContainer = document.getElementById("screenshots");
+            appInfo.screenshots.forEach(screenshot => {
+              const img = document.createElement('img');
+              img.src = screenshot;
+              img.alt = "Screenshot";
+              img.onclick = function() {
+                openFullscreen(img);
+              };
+              screenshotsContainer.appendChild(img);
+            });
+
+            document.getElementById('download-btn').href = appInfo.downloadLink;
+          } else {
+            // If no appInfo found, redirect to home
+            window.location.href = "/index.html";
+          }
+        })
+        .catch(error => {
+          console.error("Error loading info.js:", error);
+          window.location.href = "/index.html"; // Redirect on error
+        });
+    }
+
+    // Initialize the app info
+    fetchAppInfo();
+  </script>
+</body>
+</html>
