@@ -1,10 +1,10 @@
 const appInfo = {
   name: "Discord Text",
-  version: "1.0",
+  version: "0.1",
   publisher: "mod-store",
   size: "50 MB",
-  description: "A simple app to send text in Discord.",
-  features: "HI",
+  description: "Test",
+  features: "Test",
   icon: "/publishers/mod-store/discordtext/logo.png",
   screenshots: [
     "/publishers/mod-store/discordtext/img1.png",
